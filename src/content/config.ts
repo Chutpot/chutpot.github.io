@@ -8,16 +8,18 @@ const pages = defineCollection({
   })
 });
 
-const portfolio = defineCollection({
+const games = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    tagline: z.string(),
     description: z.string(),
-    date: z.coerce.date(),
+    releaseDate: z.coerce.date().optional(),
+    platforms: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),
     link: z.string().optional()
   })
 });
 
-export const collections = { pages, portfolio };
+export const collections = { pages, games };

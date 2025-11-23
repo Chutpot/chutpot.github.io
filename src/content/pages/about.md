@@ -1,16 +1,14 @@
 ---
 title: About Chutpot Studio
-description: We build purposeful digital experiences for teams that want clarity and craft.
+description: We are a small game studio crafting atmospheric worlds with tight, replayable systems.
 ---
 
-# About
-
-Chutpot Studio is a small team that blends strategy, design, and engineering. We partner with teams that want to move quickly without sacrificing craft.
+Chutpot Studio is a small game team that blends art direction, game design, and engineering. We care about feel, readability, and replayability.
 
 We focus on:
 
-- Product design and UX for web products
-- Marketing sites with strong storytelling
-- Frontend engineering in modern stacks
+- Atmosphere-first worlds with deliberate tone
+- Combat and traversal that feel responsive on controller
+- Systems that encourage experimentation and multiple runs
 
-We keep teams close to the work, ship in short cycles, and measure success by the outcomes we create together.
+We prototype fast, playtest early, and polish the details that make moment-to-moment play satisfying.

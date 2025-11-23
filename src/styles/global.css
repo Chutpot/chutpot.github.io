@@ -24,7 +24,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-sans);
   background: radial-gradient(circle at 20% 20%, rgba(76, 111, 255, 0.12), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(53, 84, 212, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(0, 51, 255, 0.18), transparent 40%),
     var(--color-brand-900);
 }
 

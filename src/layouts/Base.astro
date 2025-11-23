@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 
 const {
-  title = 'Chutpot Studio',
-  description = 'Design and development studio crafting digital experiences.',
+  title = 'Chutpot',
+  description = 'Game studio crafting atmospheric worlds with tight, replayable systems.',
   ogImage = '/ChutpotLogo.png'
 } = Astro.props;
 ---
@@ -25,14 +26,12 @@ const {
     <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6">
       <header class="flex items-center justify-between py-6">
         <a class="flex items-center gap-3 font-semibold tracking-tight" href="/">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[color:var(--color-panel)] text-lg font-bold text-white shadow-lg shadow-indigo-900/40">
-            C
-          </span>
-          <span class="hidden text-sm text-[color:var(--color-muted)] sm:inline">Chutpot Studio</span>
+          <img src="/ChutpotLogo.png" alt="Chutpot logo" class="h-8 w-auto drop-shadow-lg" />
+          <span class="sr-only">Chutpot</span>
         </a>
         <nav class="flex items-center gap-4 text-sm text-[color:var(--color-muted)]">
           <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/about">About</a>
-          <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/portfolio">Work</a>
+          <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/games">Games</a>
           <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/contact">Contact</a>
         </nav>
       </header>
@@ -41,12 +40,31 @@ const {
         <slot />
       </main>
 
-      <footer class="flex flex-col gap-2 border-t border-white/5 py-8 text-sm text-[color:var(--color-muted)]">
-        <div class="flex flex-wrap items-center justify-between gap-3">
-          <span>© {new Date().getFullYear()} Chutpot Studio</span>
-          <div class="flex gap-3">
-            <a class="hover:text-white" href="mailto:hello@chutpot.com">hello@chutpot.com</a>
-            <a class="hover:text-white" href="https://github.com/chutpot">GitHub</a>
+      <footer class="border-t border-white/5 py-8 text-sm text-[color:var(--color-muted)]">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+          <span>&copy; {new Date().getFullYear()} Chutpot</span>
+          <a class="justify-self-center text-center hover:text-white" href="mailto:contact@chutpot.com">contact@chutpot.com</a>
+          <div class="flex flex-wrap items-center justify-center gap-3 text-white/70 sm:justify-end">
+            <a class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-white transition hover:bg-white/10" href="https://facebook.com/chutpot">
+              <Icon name="simple-icons:facebook" class="h-4 w-4" />
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-white transition hover:bg-white/10" href="https://x.com/chutpot">
+              <Icon name="simple-icons:x" class="h-4 w-4" />
+              <span class="sr-only">X</span>
+            </a>
+            <a class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-white transition hover:bg-white/10" href="https://instagram.com/chutpot">
+              <Icon name="simple-icons:instagram" class="h-4 w-4" />
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-white transition hover:bg-white/10" href="https://linkedin.com/company/chutpot">
+              <Icon name="simple-icons:linkedin" class="h-4 w-4" />
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-white transition hover:bg-white/10" href="https://discord.gg/chutpot">
+              <Icon name="simple-icons:discord" class="h-4 w-4" />
+              <span class="sr-only">Discord</span>
+            </a>
           </div>
         </div>
       </footer>

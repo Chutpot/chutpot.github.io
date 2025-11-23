@@ -2,51 +2,53 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const projects = await getCollection('portfolio');
-projects.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-const featured = projects.slice(0, 3);
+const games = await getCollection('games');
+games.sort((a, b) => {
+  const dateA = a.data.releaseDate ? new Date(a.data.releaseDate).getTime() : 0;
+  const dateB = b.data.releaseDate ? new Date(b.data.releaseDate).getTime() : 0;
+  return dateB - dateA;
+});
+const featured = games.slice(0, 3);
 ---
 
-<Base title="Chutpot Studio — Design & Development" description="We craft bold digital experiences that mix strategy, design, and engineering.">
+<Base title="Chutpot" description="Game studio building bold, atmospheric worlds.">
   <section class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-    <div class="flex flex-col gap-6">
-      <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Chutpot Studio</p>
       <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-        We craft bold digital experiences with clarity and speed.
+        We build bold, atmospheric games with tight mechanics.
       </h1>
       <p class="max-w-2xl text-lg text-[color:var(--color-muted)]">
-        Strategy, design, and frontend engineering in one team. We help founders and product leads launch standout work without the
-        overhead of a big agency.
+        Small team, big worlds. We mix deliberate art direction, responsive controls, and replayable systems to make games you want to
+        come back to.
       </p>
       <div class="flex flex-wrap gap-3">
         <a
-          href="/contact"
+          href="/games"
           class="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-brand-500)] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-900/40 transition hover:bg-[color:var(--color-brand-600)]"
         >
-          Start a project <span aria-hidden="true">→</span>
+          View our games <span aria-hidden="true">→</span>
         </a>
         <a
-          href="/portfolio"
+          href="/contact"
           class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:text-[color:var(--color-brand-100)]"
         >
-          View work
+          Contact us
         </a>
       </div>
       <div class="grid gap-3 text-sm text-[color:var(--color-muted)] sm:grid-cols-3">
         <div class="rounded-2xl bg-white/5 p-4">
           <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">Focus</p>
-          <p class="mt-1 text-white">Product design</p>
-          <p>Design systems</p>
+          <p class="mt-1 text-white">Atmospheric worlds</p>
+          <p>Mechanical depth</p>
         </div>
         <div class="rounded-2xl bg-white/5 p-4">
           <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">Build</p>
-          <p class="mt-1 text-white">Astro & React</p>
-          <p>TypeScript frontends</p>
+          <p class="mt-1 text-white">Unity & custom tools</p>
+          <p>Responsive input</p>
         </div>
         <div class="rounded-2xl bg-white/5 p-4">
           <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">Ship</p>
-          <p class="mt-1 text-white">Fast, SEO-ready</p>
-          <p>Static hosting &amp; CI</p>
+          <p class="mt-1 text-white">PC & console</p>
+          <p>Player-first updates</p>
         </div>
       </div>
     </div>
@@ -54,16 +56,16 @@ const featured = projects.slice(0, 3);
       <div class="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-indigo-500/10" aria-hidden="true" />
       <div class="relative flex flex-col gap-4">
         <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Latest</p>
-        <p class="text-lg text-white">Fast, narrative sites and product surfaces built with Astro, Tailwind, and TypeScript.</p>
+        <p class="text-lg text-white">New worlds in development. Wishlist, follow, and send feedback to shape the roadmap.</p>
         <div class="grid gap-4">
           {featured.map(({ slug, data }) => (
             <a
-              href={`/portfolio/${slug}/`}
+              href={`/games/${slug}/`}
               class="group flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3 transition hover:bg-white/10"
             >
               <div>
                 <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
-                  {data.tags?.join(' • ') ?? 'Case study'}
+                  {data.tags?.join(' • ') ?? 'Game'}
                 </p>
                 <p class="text-base font-semibold text-white">{data.title}</p>
               </div>
@@ -77,35 +79,35 @@ const featured = projects.slice(0, 3);
 
   <section class="mt-16 grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:items-start">
     <div class="rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-8 shadow-lg shadow-indigo-900/40">
-      <p class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Services</p>
-      <h2 class="mt-2 text-2xl font-semibold text-white">What we do</h2>
+      <p class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Approach</p>
+      <h2 class="mt-2 text-2xl font-semibold text-white">How we build</h2>
       <p class="mt-3 text-[color:var(--color-muted)]">
-        We deliver end-to-end digital experiences—strategy, design, and implementation—so you can launch faster with confidence.
+        We prototype quickly, test with players early, and polish the feel of movement and feedback loops before adding scale.
       </p>
       <ul class="mt-5 space-y-3 text-sm text-[color:var(--color-ink)]">
-        <li>• Product design, UX writing, and design systems</li>
-        <li>• Marketing sites with strong storytelling and SEO foundations</li>
-        <li>• Frontend engineering in Astro/React with TypeScript</li>
-        <li>• Build pipelines, accessibility, and performance tuning</li>
+        <li>• Controller-first feel with responsive inputs</li>
+        <li>• Art direction that supports readability and vibe</li>
+        <li>• Systems designed for replayability and balance</li>
+        <li>• Roadmaps that ship updates without breaking saves</li>
       </ul>
     </div>
     <div class="rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-8 shadow-lg shadow-indigo-900/40">
-      <p class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Recent work</p>
+      <p class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Upcoming & recent</p>
       <div class="mt-4 grid gap-6 md:grid-cols-2">
         {featured.map(({ slug, data }) => (
           <a
-            href={`/portfolio/${slug}/`}
+            href={`/games/${slug}/`}
             class="group flex flex-col gap-2 rounded-2xl bg-white/5 p-5 transition hover:-translate-y-1 hover:bg-white/10"
           >
             <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
-              <span>{new Date(data.date).getFullYear()}</span>
+              <span>{data.releaseDate ? new Date(data.releaseDate).getFullYear() : 'TBA'}</span>
               <span class="h-px flex-1 bg-white/10"></span>
               <span>{data.tags?.join(' • ')}</span>
             </div>
             <h3 class="text-lg font-semibold text-white">{data.title}</h3>
             <p class="text-sm text-[color:var(--color-muted)]">{data.description}</p>
             <span class="mt-auto inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-brand-100)]">
-              Read case study <span aria-hidden="true">→</span>
+              View game <span aria-hidden="true">→</span>
             </span>
           </a>
         ))}
