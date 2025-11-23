@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@source "./src/**/*.{astro,html,md,mdx,js,jsx,ts,tsx}";
+
+@theme {
+  --font-sans: "Inter", "Manrope", system-ui, -apple-system, sans-serif;
+  --color-brand-50: #f3f6ff;
+  --color-brand-100: #e7edff;
+  --color-brand-500: #4c6fff;
+  --color-brand-600: #3554d4;
+  --color-brand-900: #0f1b3f;
+  --color-ink: #e9ecf6;
+  --color-muted: #9eabc9;
+  --color-surface: #121c38;
+  --color-panel: #172449;
+  --radius-xl: 1rem;
+}
+
+:root {
+  background: var(--color-brand-900);
+  color: var(--color-ink);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at 20% 20%, rgba(76, 111, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(53, 84, 212, 0.18), transparent 40%),
+    var(--color-brand-900);
+}
+
+a {
+  color: inherit;
+}
+
+.prose {
+  color: var(--color-ink);
+}
+
+.prose :where(p, ul, ol) {
+  margin-top: 0.9em;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.prose :where(h1, h2, h3, h4) {
+  margin-top: 1.4em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: white;
+}
+
+.prose strong {
+  color: white;
+}
+
+.prose a {
+  color: var(--color-brand-100);
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.14em;
+}

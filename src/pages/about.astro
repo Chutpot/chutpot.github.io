@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntry } from 'astro:content';
+
+const about = await getEntry('pages', 'about');
+const { Content } = await about.render();
+---
+
+<Base title={`${about.data.title} — Chutpot Studio`} description={about.data.description}>
+  <article class="prose max-w-3xl">
+    <Content />
+  </article>
+</Base>

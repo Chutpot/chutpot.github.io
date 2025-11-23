@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+
+const {
+  title = 'Chutpot Studio',
+  description = 'Design and development studio crafting digital experiences.',
+  ogImage = '/ChutpotLogo.png'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="theme-color" content="#0f1b3f" />
+    <link rel="icon" href="/favicon.png" />
+  </head>
+  <body class="bg-[color:var(--color-brand-900)] text-[color:var(--color-ink)]">
+    <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6">
+      <header class="flex items-center justify-between py-6">
+        <a class="flex items-center gap-3 font-semibold tracking-tight" href="/">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[color:var(--color-panel)] text-lg font-bold text-white shadow-lg shadow-indigo-900/40">
+            C
+          </span>
+          <span class="hidden text-sm text-[color:var(--color-muted)] sm:inline">Chutpot Studio</span>
+        </a>
+        <nav class="flex items-center gap-4 text-sm text-[color:var(--color-muted)]">
+          <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/about">About</a>
+          <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/portfolio">Work</a>
+          <a class="rounded-full px-3 py-1 transition hover:bg-[color:var(--color-panel)] hover:text-white" href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="flex-1 pb-16">
+        <slot />
+      </main>
+
+      <footer class="flex flex-col gap-2 border-t border-white/5 py-8 text-sm text-[color:var(--color-muted)]">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <span>© {new Date().getFullYear()} Chutpot Studio</span>
+          <div class="flex gap-3">
+            <a class="hover:text-white" href="mailto:hello@chutpot.com">hello@chutpot.com</a>
+            <a class="hover:text-white" href="https://github.com/chutpot">GitHub</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

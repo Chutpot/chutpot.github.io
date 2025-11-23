@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('portfolio');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+const { data, body } = project;
+---
+
+<Base title={`${data.title} — Chutpot Studio`} description={data.description}>
+  <article class="prose max-w-3xl">
+    <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">
+      {new Date(data.date).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
+      {data.tags && data.tags.length ? ` · ${data.tags.join(' • ')}` : ''}
+    </p>
+    <h1 class="mt-2 text-3xl font-semibold text-white">{data.title}</h1>
+    <p class="mt-2 text-[color:var(--color-muted)]">{data.description}</p>
+    {data.link && (
+      <p class="mt-2">
+        <a class="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-brand-100)]" href={data.link}>
+          Visit project <span aria-hidden="true">↗</span>
+        </a>
+      </p>
+    )}
+    <div class="mt-6 space-y-4 text-base leading-relaxed text-[color:var(--color-ink)]" set:html={body} />
+  </article>
+</Base>
