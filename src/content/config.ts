@@ -20,7 +20,9 @@ const games = defineCollection({
     cover: z.string().optional(),
     coverHorizontal: z.string().optional(),
     coverVertical: z.string().optional(),
-    link: z.string().optional()
+    link: z.string().optional(),
+    steam: z.string().optional(),
+    switch: z.string().optional()
   })
 });
 

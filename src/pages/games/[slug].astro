@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { game } = Astro.props;
 const { data } = game;
 const { Content } = await game.render();
-const cover = data.coverVertical ?? data.coverHorizontal ?? data.cover ?? '/ChutpotLogo.png';
+const cover = data.coverHorizontal ?? data.coverVertical ?? data.cover ?? '/ChutpotLogo.png';
 ---
 
 <Base title={`${data.title}`} description={data.tagline}>
@@ -22,7 +22,7 @@ const cover = data.coverVertical ?? data.coverHorizontal ?? data.cover ?? '/Chut
       {data.releaseDate
         ? new Date(data.releaseDate).toDateString()
         : 'Release: TBA'}
-      {data.platforms?.length ? ` | ${data.platforms.join('  ')}` : ''}
+      {data.platforms?.length ? ` | ${data.platforms.join('  ')}` : ''}
     </p>
     <h1 class="mt-2 text-3xl font-semibold text-white">{data.title}</h1>
     <p class="mt-2 text-[color:var(--color-muted)]">{data.tagline}</p>
