@@ -18,6 +18,8 @@ const games = defineCollection({
     platforms: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),
+    coverHorizontal: z.string().optional(),
+    coverVertical: z.string().optional(),
     link: z.string().optional()
   })
 });

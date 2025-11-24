@@ -1,14 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getEntry } from 'astro:content';
-
-const about = await getEntry('pages', 'about');
-const { Content } = await about.render();
 ---
 
-<Base title={`${about.data.title} — Chutpot Studio`} description={about.data.description}>
+<Base title=`Chutpot`>
   <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--color-muted)]">About</p>
   <article class="prose max-w-3xl">
-    <Content />
+    <p>
+      We’re a group of friends who started developing games as a hobby. Currently, we`re aiming on developing Pixel art games
+    </p>
   </article>
 </Base>

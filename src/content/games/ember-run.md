@@ -5,7 +5,8 @@ description: Chain dashes, ignite arenas, and outrun collapsing caverns in a tig
 releaseDate: 2025-06-15
 platforms: [PC, Switch]
 tags: [roguelite, action]
-cover: '/ChutpotLogo.png'
+coverVertical: '/cerebellumVertical.png'
+coverHorizontal: '/cerebellumHorizontal.png'
 link: 'https://example.com/ember-run'
 ---
 

@@ -5,7 +5,8 @@ description: Explore floating districts, befriend quirky robots, and restore pow
 releaseDate: 2025-11-01
 platforms: [PC, Steam Deck]
 tags: [adventure, narrative, exploration]
-cover: '/ChutpotLogo.png'
+coverVertical: '/cerebellumVertical.png'
+coverHorizontal: '/cerebellumHorizontal.png'
 link: 'https://example.com/echoes-of-aurora'
 ---
 
