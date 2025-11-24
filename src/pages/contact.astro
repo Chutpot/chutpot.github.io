@@ -3,16 +3,70 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Chutpot" description="Reach out to start a project or request a quick intro.">
-  <section class="max-w-2xl space-y-4">
-    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Contact</p>
-    <h1 class="text-3xl font-semibold text-white">Let’s talk.</h1>
-    <p class="text-[color:var(--color-muted)]">
-      Tell us about your product, the outcome you want, and your timeline. We usually reply within one business day.
-    </p>
-    <div class="space-y-2 rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-6 shadow-lg shadow-indigo-900/40">
-      <p class="text-sm text-white">Email</p>
-      <a class="text-lg font-semibold text-[color:var(--color-brand-100)]" href="mailto:hello@chutpot.com">hello@chutpot.com</a>
-      <p class="text-sm text-[color:var(--color-muted)]">Prefer async? Send a short brief and we’ll propose a path forward.</p>
+  <section class="grid gap-8 md:grid-cols-[1.1fr,0.9fr] md:items-start">
+    <div class="space-y-4">
+      <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">Contact</p>
+      <h1 class="text-3xl font-semibold text-white">Let's talk.</h1>
+      <p class="text-[color:var(--color-muted)]">
+        Tell us about your product, the outcome you want, and your timeline. We usually reply within three business day.
+      </p>
+
+      <form class="space-y-4 rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-6 shadow-lg shadow-indigo-900/40" method="post" action="https://formspree.io/f/mldkewvn">
+        <div class="grid gap-4 md:grid-cols-2">
+          <label class="space-y-2 text-sm text-[color:var(--color-muted)]">
+            <span>Name</span>
+            <input
+              class="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-white/40 focus:border-[color:var(--color-brand-100)] focus:outline-none"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            />
+          </label>
+          <label class="space-y-2 text-sm text-[color:var(--color-muted)]">
+            <span>Email</span>
+            <input
+              class="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-white/40 focus:border-[color:var(--color-brand-100)] focus:outline-none"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="space-y-2 text-sm text-[color:var(--color-muted)]">
+          <span>Message</span>
+          <textarea
+            class="min-h-[160px] w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-white/40 focus:border-[color:var(--color-brand-100)] focus:outline-none"
+            name="message"
+            placeholder="Goals, timeline, links, or anything else you'd like to share."
+            required
+          ></textarea>
+        </label>
+        <div class="space-y-2">
+          <div class="flex justify-end">
+            <button
+              type="submit"
+              class="mt-1 inline-flex items-center justify-center rounded-lg bg-[color:var(--color-brand-100)] px-4 py-2 text-sm font-semibold text-[#05060a] transition hover:brightness-110"
+            >
+              Send message
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
+
+     <div class="space-y-3 rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-6 shadow-lg shadow-indigo-900/40">
+      <div class="space-y-1">
+        <p class="text-sm text-white">Email</p>
+        <a class="text-lg font-semibold text-[color:var(--color-brand-100)]" href="mailto:contact@chutpot.com">contact@chutpot.com</a>
+        <p class="text-sm text-[color:var(--color-muted)]">Prefer async? Send a short brief and we'll propose a path forward.</p>
+      </div>
+      <!-- <div class="space-y-1 pt-2">
+        <p class="text-sm text-white">Address</p>
+        <p class="text-[color:var(--color-muted)]">Chutpot Studio<br />123 Crescent Ave, Suite 400<br />San Francisco, CA 94107</p>
+      </div>
+    </div> -->
   </section>
 </Base>
