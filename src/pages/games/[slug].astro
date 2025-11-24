@@ -17,34 +17,40 @@ const cover = data.coverHorizontal ?? data.coverVertical ?? data.cover ?? '/Chut
 ---
 
 <Base title={`${data.title}`} description={data.tagline}>
-  <article class="prose max-w-3xl">
-    <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">
-      {data.releaseDate
-        ? new Date(data.releaseDate).toDateString()
-        : 'Release: TBA'}
-      {data.platforms?.length ? ` | ${data.platforms.join('  ')}` : ''}
-    </p>
-    <h1 class="mt-2 text-3xl font-semibold text-white">{data.title}</h1>
-    <p class="mt-2 text-[color:var(--color-muted)]">{data.tagline}</p>
-    {cover && (
-      <div class="mt-5 overflow-hidden rounded-[var(--radius-xl)] border border-white/5 bg-[color:var(--color-panel)]">
-        <img
-          src={cover}
-          alt={`${data.title} cover art`}
-          class="max-h-[420px] w-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+  <article class="space-y-8">
+    <div class="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
+      <div class="flex-1 space-y-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">
+          {data.releaseDate
+            ? new Date(data.releaseDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
+            : 'Release: TBA'}
+        </p>
+        <h1 class="text-3xl font-semibold text-white">{data.title}</h1>
+        <p class="text-[color:var(--color-muted)]">{data.tagline}</p>
+        {data.platforms?.length && (
+          <div class="flex flex-wrap gap-2 text-sm text-[color:var(--color-muted)] md:items-center md:gap-3">
+            {data.platforms.map((platform) => (
+              <span class="rounded-full bg-white/5 px-3 py-1 text-[color:var(--color-ink)]">{platform}</span>
+            ))}
+          </div>
+        )}
       </div>
-    )}
-    {data.link && (
-      <p class="mt-3">
-        <a class="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-brand-100)]" href={data.link}>
-          View store / page <span aria-hidden="true">?</span>
-        </a>
-      </p>
-    )}
-    <div class="mt-6 space-y-4 text-base leading-relaxed text-[color:var(--color-ink)]">
+      {cover && (
+        <div class="md:w-1/2 md:pl-2">
+          <div class="overflow-hidden rounded-[var(--radius-xl)] border border-white/5 bg-[color:var(--color-panel)]">
+            <img
+              src={cover}
+              alt={`${data.title} cover art`}
+              class="w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+
+    <div class="space-y-4 text-base leading-relaxed text-[color:var(--color-ink)]">
       <Content />
     </div>
   </article>

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
 const games = await getCollection('games');
@@ -32,17 +33,43 @@ games.sort((a, b) => {
               <div class="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[color:var(--color-muted)]">
                 <span>{data.releaseDate ? new Date(data.releaseDate).getFullYear() : 'TBA'}</span>
                 <span class="h-px flex-1 bg-white/10"></span>
-                <span>{data.platforms?.join(' ')}</span>
               </div>
               <h2 class="mt-3 text-xl font-semibold text-white transition group-hover:text-[color:var(--color-brand-100)]">
                 {data.title}
               </h2>
               <p class="text-sm text-[color:var(--color-muted)]">{data.tagline}</p>
               <p class="mt-2 text-[color:var(--color-muted)]">{data.description}</p>
-              <span class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-brand-100)]">
-                View game
-                <span aria-hidden="true"></span>
-              </span>
+              <div class="mt-4 inline-flex items-center gap-3 text-[color:var(--color-brand-100)]" aria-label="Platforms">
+                {(data.platforms ?? []).map((platform) => {
+                  const p = platform.toLowerCase();
+                  if (p.includes('steam')) {
+                    return <Icon name="simple-icons:steam" class="h-5 w-5" aria-label={platform} title={platform} />;
+                  }
+                  if (p.includes('switch')) {
+                    return (
+                      <Icon name="mdi:nintendo-switch"class="h-5 w-5"aria-label={platform}title={platform}
+                      />
+                    );
+                  }
+                  if (p.includes('epic')) {
+                    return (
+                      <Icon name="simple-icons:epicgames"class="h-5 w-5"aria-label={platform}title={platform}
+                      />
+                    );
+                  }
+                    if (p.includes('simple-icons:xbox')) {
+                    return (
+                      <Icon name="simple-icons:xbox"class="h-5 w-5"aria-label={platform}title={platform}
+                      />
+                    );
+                  }
+                  return (
+                    <span class="text-sm font-medium" aria-label={platform} title={platform}>
+                      {platform}
+                    </span>
+                  );
+                })}
+              </div>
             </div>
             <div class="relative overflow-hidden rounded-lg md:w-40 md:flex-shrink-0">
               <img
