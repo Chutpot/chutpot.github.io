@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const games = await getCollection('games');
@@ -72,11 +73,13 @@ games.sort((a, b) => {
               </div>
             </div>
             <div class="relative overflow-hidden rounded-lg md:w-40 md:flex-shrink-0">
-              <img
+              <Image
+                width={100}
+                height={100}
+                loading={"eager"}
                 src={cover}
                 alt={`${data.title} cover art`}
                 class="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-90"
-                loading="lazy"
               />
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(3,7,18,0.45)]"></div>
             </div>

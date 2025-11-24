@@ -4,8 +4,8 @@ tagline: A cozy sci-fi adventure about rebuilding a fallen sky city.
 description: Embark on Cerebellum, a meticulously crafted 2D pixel art precision platformer set within the enigmatic confines of a vast spaceship.
 platforms: [PC, Nintendo Switch]
 tags: [2D Platformer, Pixel Art]
-coverVertical: '/cerebellumVertical.png'
-coverHorizontal: '/cerebellumHorizontal.png'
+coverVertical: './cerebellumVertical.png'
+coverHorizontal: './cerebellumHorizontal.png'
 ---
 
 ## About

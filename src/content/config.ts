@@ -10,7 +10,7 @@ const pages = defineCollection({
 
 const games = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     tagline: z.string(),
     description: z.string(),
@@ -18,8 +18,8 @@ const games = defineCollection({
     platforms: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),
-    coverHorizontal: z.string().optional(),
-    coverVertical: z.string().optional(),
+    coverHorizontal: image(),
+    coverVertical: image(),
     link: z.string().optional(),
     steam: z.string().optional(),
     switch: z.string().optional()

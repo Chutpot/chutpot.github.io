@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @source "./src/**/*.{astro,html,md,mdx,js,jsx,ts,tsx}";
 
+@font-face {
+  font-family: 'Game of Squids';
+  src: url('/fonts/Game%20Of%20Squids.otf') format('opentype'),
+    url('/fonts/Game%20Of%20Squids.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme {
   --font-sans: "Inter", "Manrope", system-ui, -apple-system, sans-serif;
   --color-brand-50: #f3f6ff;

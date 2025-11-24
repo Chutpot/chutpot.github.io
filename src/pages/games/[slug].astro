@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
@@ -38,11 +39,11 @@ const cover = data.coverHorizontal ?? data.coverVertical ?? data.cover ?? '/Chut
       {cover && (
         <div class="md:w-1/2 md:pl-2">
           <div class="overflow-hidden rounded-[var(--radius-xl)] border border-white/5 bg-[color:var(--color-panel)]">
-            <img
+            <Image
               src={cover}
               alt={`${data.title} cover art`}
               class="w-full object-cover"
-              loading="lazy"
+              loading="eager"
               decoding="async"
             />
           </div>

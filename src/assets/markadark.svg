@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="149.99995mm"
+   height="23.967449mm"
+   viewBox="0 0 149.99995 23.967449"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="translate(-50.20157,-49.596995)">
+    <rect
+       style="fill:#c87137;fill-opacity:1;stroke-width:0.265098;stroke-dasharray:none"
+       id="rect3258"
+       width="3.2127316"
+       height="2.9080758"
+       x="146.21036"
+       y="-74.968491"
+       ry="0.4896"
+       transform="matrix(0.72056019,0.6933924,-0.72056019,0.6933924,0,0)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.264999;stroke-dasharray:none"
+       id="rect3202"
+       width="7.8962946"
+       height="3.9730639"
+       x="-156.6149"
+       y="74.357643"
+       ry="0.38067487"
+       transform="rotate(-135)" />
+    <rect
+       style="fill:#aa0000;fill-opacity:1;stroke-width:0.264583"
+       id="rect2030"
+       width="13.947927"
+       height="7.2328224"
+       x="164.58858"
+       y="62.537266"
+       ry="2.4979699" />
+    <rect
+       style="fill:#de8787;fill-opacity:1;stroke-width:0.264583"
+       id="rect2212"
+       width="12.166369"
+       height="1.7206504"
+       x="165.27379"
+       y="62.506809"
+       ry="0.86032522" />
+    <text
+       xml:space="preserve"
+       style="font-size:31.7526px;fill:#ffffff;stroke-width:0.264605"
+       x="48.212906"
+       y="73.570496"
+       id="text179"
+       transform="scale(1.0000822,0.9999178)"><tspan
+         id="tspan177"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.7526px;font-family:'Game Of Squids';-inkscape-font-specification:'Game Of Squids';fill:#ffffff;stroke-width:0.264605"
+         x="48.212906"
+         y="73.570496">CHUTPoT</tspan></text>
+  </g>
+</svg>

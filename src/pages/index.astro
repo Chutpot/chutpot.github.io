@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import Image from 'astro/components/Image.astro';
 
 const games = await getCollection('games');
 games.sort((a, b) => {
@@ -55,13 +56,13 @@ const featured = games.slice(0, 3);
     </div>
   </section>
 
-  <section class="grid gap-6 md:grid-cols-2 mt-25 max-w-6xl mx-auto place-items-center">
+  <section class="grid gap-6 md:grid-cols-2 mt-25 max-w-6xl mx-auto justify-items-center">
   {games.map(({ slug, data }) => {
-    const cover = data.coverVertical ?? data.coverHorizontal ?? data.cover ?? '/ChutpotLogo.png';
+    const cover = data.coverVertical ?? data.coverHorizontal ?? data.cover;
     return (
       <a
         href={`/games/${slug}/`}
-        class="group relative block w-full max-w-xl overflow-hidden rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-6 shadow-lg shadow-indigo-900/30 transition hover:-translate-y-1 hover:shadow-xl "
+        class="group relative block overflow-hidden rounded-[var(--radius-xl)] bg-[color:var(--color-panel)] p-6 shadow-lg shadow-indigo-900/30 transition hover:-translate-y-1 hover:shadow-xl "
       >
         <div class="flex flex-col gap-4 md:flex-row md:items-center ">
           <div class="flex-1">
@@ -107,11 +108,13 @@ const featured = games.slice(0, 3);
             </div>
           </div>
           <div class="relative overflow-hidden rounded-lg md:w-40 md:flex-shrink-0">
-            <img
+            <Image
+              width={100}
+              height={100}
+              loading="eager"
               src={cover}
               alt={`${data.title} cover art`}
               class="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-90"
-              loading="lazy"
             />
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(3,7,18,0.45)]"></div>
           </div>

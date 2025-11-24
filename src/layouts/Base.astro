@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import Logo from "../assets/marka.svg"
+import FavIcon from "../assets/favicon.png"
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
 
 const {
   title = 'Chutpot',
   description = 'Game studio crafting atmospheric worlds with tight, replayable systems.',
-  ogImage = '/ChutpotLogo.png'
 } = Astro.props;
 ---
 
@@ -18,15 +20,15 @@ const {
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={Logo.src} />
     <meta name="theme-color" content="#0f1b3f" />
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" href={FavIcon.src} />
   </head>
   <body class="bg-[color:var(--color-brand-900)] text-[color:var(--color-ink)]">
     <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6">
       <header class="flex items-center justify-between py-6">
         <a class="flex items-center gap-3 font-semibold tracking-tight" href="/">
-          <img src="/ChutpotLogo.png" alt="Chutpot logo" class="h-8 w-auto drop-shadow-lg" />
+          <Logo width={64} height={64}  fill="currentColor" class="h-8 w-auto drop-shadow-lg" />
           <span class="sr-only">Chutpot</span>
         </a>
         <nav class="flex items-center gap-4 text-sm text-[color:var(--color-muted)]">
