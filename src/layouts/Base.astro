@@ -43,10 +43,12 @@ const {
       </main>
 
       <footer class="border-t border-white/5 py-8 text-sm text-[color:var(--color-muted)]">
-        <div class="grid grid-cols-1 gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
-          <span>&copy; {new Date().getFullYear()} Chutpot</span>
-          <a class="justify-self-center text-center hover:text-white" href="mailto:contact@chutpot.com">contact@chutpot.com</a>
-          <div class="flex flex-wrap items-center justify-center gap-3 text-white/70 sm:justify-end">
+        <div class="flex flex-col gap-4 text-center sm:grid sm:grid-cols-[auto_1fr_auto] sm:items-center sm:text-left">
+          <span >&copy; {new Date().getFullYear()} Chutpot</span>
+          <a class="justify-self-center text-center font-medium text-white/80 transition hover:text-white" href="mailto:contact@chutpot.com">
+            contact@chutpot.com
+          </a>
+          <div class="flex flex-wrap items-center justify-center gap-2 text-white/70 sm:justify-end">
             <a class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-white transition hover:bg-white/10" href="https://facebook.com/chutpot">
               <Icon name="simple-icons:facebook" class="h-4 w-4" />
               <span class="sr-only">Facebook</span>
